@@ -2,12 +2,9 @@ FROM debian:buster
 
 RUN apt-get update
 RUN apt-get install build-essential make cmake wget autogen autoconf automake -y --no-install-recommends
-RUN cd && wget --no-check-certificate https://github.com/steward-fu/nds_miyoo/releases/download/assets/toolchain.tar.gz
-RUN cd && tar xvf toolchain.tar.gz
-RUN cd && mv /sdl2_miyoo/mmiyoo /opt
-RUN cd && mv /sdl2_miyoo/prebuilt /opt
-#COPY mmiyoo /opt/mmiyoo
-#COPY prebuilt /opt/prebuilt
+
+WORKDIR /opt
+RUN wget --no-check-certificate https://github.com/steward-fu/nds_miyoo/releases/download/assets/toolchain.tar.gz | tar zx
 
 RUN mkdir /sdl2_miyoo
 RUN ln -s /opt/mmiyoo /sdl2_miyoo
@@ -19,10 +16,9 @@ COPY example /sdl2_miyoo/example
 COPY swiftshader /sdl2_miyoo/swiftshader
 COPY packages /sdl2_miyoo/packages
 
-RUN export PATH=/opt/mmiyoo/bin/:$PATH
-
 WORKDIR /sdl2_miyoo
 
+RUN export PATH=/opt/mmiyoo/bin/:$PATH
 RUN make config
 RUN make sdl2
 RUN make gpu
