@@ -4,6 +4,7 @@ RUN apt-get update
 RUN apt-get install build-essential make cmake wget autogen autoconf automake -y --no-install-recommends
 
 WORKDIR /opt
+COPY mmiyoo /opt/mmiyoo
 RUN wget --no-check-certificate https://github.com/steward-fu/nds_miyoo/releases/download/assets/toolchain.tar.gz
 RUN tar zxvf toolchain.tar.gz -C /opt
 RUN rm toolchain.tar.gz
@@ -22,14 +23,14 @@ WORKDIR /sdl2_miyoo
 
 RUN export PATH=/opt/mmiyoo/bin/:$PATH
 RUN make config
-RUN make sdl2
-RUN make gpu
-RUN make example
+#RUN make sdl2
+#RUN make gpu
+#RUN make example
 
-RUN mkdir -p /sample/libs
-RUN cp swiftshader/build/*.so sdl2/build/.libs/libSDL2-2.0.so.0 /sample/libs/
-RUN cp -f assets/mmiyoo/config.json assets/mmiyoo/launch.sh example/*.* example/Makefile /sample/
+#RUN mkdir -p /sample/libs
+#RUN cp swiftshader/build/*.so sdl2/build/.libs/libSDL2-2.0.so.0 /sample/libs/
+#RUN cp -f assets/mmiyoo/config.json assets/mmiyoo/launch.sh example/*.* example/Makefile /sample/
 
 
-RUN mkdir /code
-WORKDIR /code
+#RUN mkdir /code
+#WORKDIR /code
