@@ -28,8 +28,8 @@ RUN make gpu
 RUN make example
 
 RUN mkdir -p /sample/libs
-RUN cp swiftshader/build/*.so sdl2/build/.libs/libSDL2-2.0.so.0 /sample/libs/
-RUN cp -f assets/mmiyoo/config.json assets/mmiyoo/launch.sh example/*.* example/Makefile /sample/
+#RUN cp swiftshader/build/*.so sdl2/build/.libs/libSDL2-2.0.so.0 /sample/libs/
+#RUN cp -f assets/mmiyoo/config.json assets/mmiyoo/launch.sh example/*.* example/Makefile /sample/
 
 
 RUN mkdir /code

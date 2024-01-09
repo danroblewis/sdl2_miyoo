@@ -11,6 +11,7 @@ MOD      = mmiyoo
 
 .PHONY: build
 build:
+	mkdir -p libs
 	cp /sdl2_miyoo/assets/mmiyoo/config.json /sdl2_miyoo/assets/mmiyoo/launch.sh .
 	cp /sdl2_miyoo/swiftshader/build/*.so libs/
 	cp /sdl2_miyoo/sdl2/build/.libs/libSDL2-2.0.so.0 libs/
