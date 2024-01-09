@@ -4,7 +4,9 @@ RUN apt-get update
 RUN apt-get install build-essential make cmake wget autogen autoconf automake -y --no-install-recommends
 
 WORKDIR /opt
-RUN wget --no-check-certificate https://github.com/steward-fu/nds_miyoo/releases/download/assets/toolchain.tar.gz -O - | tar zx
+RUN wget --no-check-certificate https://github.com/steward-fu/nds_miyoo/releases/download/assets/toolchain.tar.gz
+RUN tar zxvf toolchain.tar.gz -C /opt
+RUN rm toolchain.tar.gz
 
 RUN mkdir /sdl2_miyoo
 RUN ln -s /opt/mmiyoo /sdl2_miyoo
