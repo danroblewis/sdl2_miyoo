@@ -16,4 +16,4 @@ else
 fi
 
 cd $mydir
-./test
+./game

@@ -36,7 +36,7 @@ static void *ppFunc=NULL;
 static void *pfb_idx=NULL;
 static void *pfb_vaddr=NULL;
 
-EGLBoolean eglUpdateBufferSettings(EGLDisplay display, EGLSurface surface, void *pFunc, void *fb_idx, void *fb_vaddr);
+//EGLBoolean eglUpdateBufferSettings(EGLDisplay display, EGLSurface surface, void *pFunc, void *fb_idx, void *fb_vaddr);
 
 int glLoadLibrary(_THIS, const char *name)
 {
@@ -132,7 +132,7 @@ SDL_GLContext glCreateContext(_THIS, SDL_Window *window)
     eglMakeCurrent(display, surface, surface, context);
     
     printf(PREFIX"sdl2 %s, %p %p %p\n", __func__, ppFunc, pfb_idx, pfb_vaddr);
-    eglUpdateBufferSettings(display, surface, ppFunc, pfb_idx, pfb_vaddr);
+    //eglUpdateBufferSettings(display, surface, ppFunc, pfb_idx, pfb_vaddr);
     return context;
 }
 
